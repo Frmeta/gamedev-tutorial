@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/StonePlatform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/BlueShip.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/PlatformBlue.gd" type="Script" id=3]
+[ext_resource path="res://scenes/ObjectiveArea.gd" type="Script" id=4]
+[ext_resource path="res://scenes/RedShip.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/SnowPlatform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/fasilkom.png" type="Texture" id=7]
+[ext_resource path="res://scenes/GameArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/latar.jpg" type="Texture" id=9]
+[ext_resource path="res://scenes/Meteor.tscn" type="PackedScene" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 69.375, 39.5 )
+
+[node name="Level2" type="Node"]
+
+[node name="GameArea" parent="." instance=ExtResource( 8 )]
+
+[node name="PlatformBlue" type="Node2D" parent="."]
+position = Vector2( 35, 565 )
+script = ExtResource( 3 )
+
+[node name="StonePlatform" parent="PlatformBlue" instance=ExtResource( 1 )]
+position = Vector2( 0, 2 )
+
+[node name="StonePlatform2" parent="PlatformBlue" instance=ExtResource( 1 )]
+position = Vector2( 70, 2 )
+
+[node name="PlatformBlue2" type="Node2D" parent="."]
+position = Vector2( 194, 567 )
+script = ExtResource( 3 )
+
+[node name="SnowPlatform" parent="PlatformBlue2" instance=ExtResource( 6 )]
+
+[node name="SnowPlatform2" parent="PlatformBlue2" instance=ExtResource( 6 )]
+position = Vector2( 70, 0 )
+
+[node name="SnowPlatform3" parent="PlatformBlue2" instance=ExtResource( 6 )]
+position = Vector2( -236, -69 )
+
+[node name="SnowPlatform4" parent="PlatformBlue2" instance=ExtResource( 6 )]
+position = Vector2( -236, -140 )
+
+[node name="SnowPlatform5" parent="PlatformBlue2" instance=ExtResource( 6 )]
+position = Vector2( -235, 1 )
+
+[node name="BlueShip" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72.7009, 419.901 )
+
+[node name="RedShip" parent="." instance=ExtResource( 5 )]
+position = Vector2( 223, 416 )
+
+[node name="ObjectiveArea" type="Area2D" parent="."]
+position = Vector2( 849, 27 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea"]
+position = Vector2( 70.625, 40 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="ObjectiveArea"]
+position = Vector2( 73, 71 )
+texture = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 545, 304 )
+scale = Vector2( 3.2, 3.2 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="Meteor" parent="." instance=ExtResource( 10 )]
+position = Vector2( 713, 505 )
+
+[node name="Meteor2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 237, 167 )
+
+[node name="Meteor3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 444, 507 )
+
+[node name="Meteor4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 670, 156 )
+
+[node name="WinText" type="Node2D" parent="."]
+position = Vector2( 159, 202 )
+scale = Vector2( 3.88, 3.88 )
+
+[node name="Label" type="Label" parent="WinText"]
+anchor_right = 0.699
+margin_left = 61.8557
+margin_top = 17.0103
+margin_right = 234.856
+margin_bottom = 31.0103
+text = "YOU WON"
+
+[connection signal="body_entered" from="ObjectiveArea" to="ObjectiveArea" method="_on_ObjectiveArea_body_entered"]
