@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/stone.png-53bde1a7bc7aaa1c46111452ff1f72a0.stex"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 35.4208, 35.2949 )
+
+[node name="StonePlatform" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
