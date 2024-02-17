@@ -17,7 +17,7 @@ Root node dari scene BlueShip dan StonePlatform menggunakan tipe yang berbeda. B
 - Static2D -> objek memiliki physics diam, tidak menerima collision dari objek lain
 
 Ubah nilai atribut Mass dan Weight pada tipe RigidBody2D secara bebas di scene BlueShip, lalu coba jalankan scene MainLevel. Apa yang terjadi?
-- Nilai Mass akan selalu proposional dengan Weight, begitu juga sebaliknya. Namuun apabila dijalankan tidak terasa perbedaan karena kita mendorong dengan objek static
+- Nilai Mass akan selalu proposional dengan Weight, begitu juga sebaliknya. Namuun apabila dijalankan tidak terasa perbedaan karena kita mendorong dengan objek static. Perbedaannya hanya dapat terlihat apabila bertabrakan dengan objek rigidbody lainnya, objek dengan mass besar memiliki daya dorong yang besar dan sulit bergerak.
 
 Ubah nilai atribut Disabled pada tipe CollisionShape2D di scene StonePlatform, lalu coba jalankan scene MainLevel. Apa yang terjadi?
 - Blueship akan jatuh menembus platform. Hal ini terjadi karena node CollisionShape2D mendefinisikan shape/bentuk dari paltform. Apabila atribut Disabled diubah jadi Off, maka platform tidak mengetahui bentuk collisionnya.
