@@ -11,7 +11,5 @@ func _on_ObjectiveArea_body_entered(body: RigidBody2D):
 		print("Reached objective!")
 		winText.visible = true
 		
-		yield(get_tree().create_timer(1), "timeout")
-		
 		get_tree().change_scene("res://scenes/Level2.tscn")
 
